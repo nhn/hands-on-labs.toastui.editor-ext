@@ -28,7 +28,7 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="색인" href="genindex.html" />
     <link rel="search" title="검색" href="search.html" />
-    <link rel="next" title="6. 정리" href="wrap-up.html" />
+    <link rel="next" title="6. 익스텐션 추가하기" href="06.html" />
     <link rel="prev" title="4. 에디터를 생성할때 사용할 수 있는 옵션" href="04.html" /> 
 
   
@@ -77,11 +77,17 @@
             
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="01.html">1. 개요</a></li>
-<li class="toctree-l1"><a class="reference internal" href="02.html">2. TOASTUI Editor 설치</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02.html">2. TOASTUI Editor 설치 및 서버 실행</a></li>
 <li class="toctree-l1"><a class="reference internal" href="03.html">3. 에디터 생성하기</a></li>
 <li class="toctree-l1"><a class="reference internal" href="04.html">4. 에디터를 생성할때 사용할 수 있는 옵션</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">5. 컨텐츠의 저장과 로드</a></li>
-<li class="toctree-l1"><a class="reference internal" href="wrap-up.html">6. 정리</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">5. 컨텐츠의 저장과 로드</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#html">5.1. HTML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#markdown">5.2. Markdown</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="06.html">6. 익스텐션 추가하기</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07.html">7. 유튜브 익스텐션 개발하기</a></li>
+<li class="toctree-l1"><a class="reference internal" href="wrap-up.html">8. 정리</a></li>
 </ul>
 
             
@@ -146,6 +152,31 @@
             
   <div class="section" id="id1">
 <h1>5. 컨텐츠의 저장과 로드<a class="headerlink" href="#id1" title="제목 주소">¶</a></h1>
+<p>TOSAST UI Editor는 기본적으로 마크다운 텍스트로 입력 받고 출력합니다. 에디터를 사용하는 유저는 마크다운 모드에서 혹은 위지윅 모드에서 문서를 편집할 수 있지만 그것을 저장할때는 마크다운 텍스트로 저장됩니다. 하지만 개발 편의를 위해 HTML 데이트를 입력하거나 출력받을 수 있는 API도 제공하고 있습니다.</p>
+<div class="section" id="html">
+<h2>5.1. HTML<a class="headerlink" href="#html" title="제목 주소">¶</a></h2>
+<ul class="simple">
+<li>setHTML(html): 인자로 전달하는 HTML 텍스트로 에디터의 컨텐츠를 변경합니다.</li>
+<li>getHTML(): 현재 편집중인 컨텐츠를 HTML 텍스트로 받습니다.</li>
+</ul>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// app.js 파일 하단에 아래의 코드를 입력해 확인해 보세요~</span>
+<span class="nx">editor</span><span class="p">.</span><span class="nx">setHTML</span><span class="p">(</span><span class="s1">&#39;&lt;h1&gt;HELLO WORLD&lt;/h1&gt;&#39;</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">editor</span><span class="p">.</span><span class="nx">getHTML</span><span class="p">());</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="markdown">
+<h2>5.2. Markdown<a class="headerlink" href="#markdown" title="제목 주소">¶</a></h2>
+<ul class="simple">
+<li>setMarkdown(markdown): 인자로 전달하는 마크다운 텍스트로 에디터의 컨텐츠를 변경합니다.</li>
+<li>getMarkdown(): 현재 편집중인 컨텐츠를 마크다운 텍스트로 받습니다.</li>
+</ul>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// app.js 파일 하단에 아래의 코드를 입력해 확인해 보세요~</span>
+<span class="nx">editor</span><span class="p">.</span><span class="nx">setMarkdown</span><span class="p">(</span><span class="s1">&#39;# HELLO WORLD&#39;</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">editor</span><span class="p">.</span><span class="nx">getMarkdown</span><span class="p">());</span>
+</pre></div>
+</div>
+</div>
 </div>
 
 
@@ -156,7 +187,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="wrap-up.html" class="btn btn-neutral float-right" title="6. 정리" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="06.html" class="btn btn-neutral float-right" title="6. 익스텐션 추가하기" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="04.html" class="btn btn-neutral" title="4. 에디터를 생성할때 사용할 수 있는 옵션" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

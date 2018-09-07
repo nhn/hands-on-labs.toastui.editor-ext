@@ -158,7 +158,7 @@ Code Blocks
     "session_name": "shorthands"
     }
 
-Emphasized lines with line numbers
+fEmphasized lines with line numbers
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: python

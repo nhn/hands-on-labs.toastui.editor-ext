@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>2. TOASTUI Editor 설치 &mdash; Dooray! Messenger Incoming Hook Sample 1.0 documentation</title>
+  <title>2. TOASTUI Editor 설치 및 서버 실행 &mdash; Dooray! Messenger Incoming Hook Sample 1.0 documentation</title>
   
 
   
@@ -77,10 +77,18 @@
             
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="01.html">1. 개요</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">2. TOASTUI Editor 설치</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">2. TOASTUI Editor 설치 및 서버 실행</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">2.1. 프로젝트 설치</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#toast-ui-editor">2.2. TOAST UI Editor 설치</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">2.3. 개발 서버 실행</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="03.html">3. 에디터 생성하기</a></li>
 <li class="toctree-l1"><a class="reference internal" href="04.html">4. 에디터를 생성할때 사용할 수 있는 옵션</a></li>
-<li class="toctree-l1"><a class="reference internal" href="wrap-up.html">5. 정리</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05.html">5. 컨텐츠의 저장과 로드</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06.html">6. 익스텐션 추가하기</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07.html">7. 유튜브 익스텐션 개발하기</a></li>
+<li class="toctree-l1"><a class="reference internal" href="wrap-up.html">8. 정리</a></li>
 </ul>
 
             
@@ -126,7 +134,7 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>2. TOASTUI Editor 설치</li>
+      <li>2. TOASTUI Editor 설치 및 서버 실행</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -144,7 +152,36 @@
            <div itemprop="articleBody">
             
   <div class="section" id="toastui-editor">
-<h1>2. TOASTUI Editor 설치<a class="headerlink" href="#toastui-editor" title="제목 주소">¶</a></h1>
+<h1>2. TOASTUI Editor 설치 및 서버 실행<a class="headerlink" href="#toastui-editor" title="제목 주소">¶</a></h1>
+<div class="section" id="id1">
+<h2>2.1. 프로젝트 설치<a class="headerlink" href="#id1" title="제목 주소">¶</a></h2>
+<ol class="arabic simple">
+<li>터미널을 열어 프로젝트를 클론 받습니다.</li>
+</ol>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/shiren/hands-on-labs.toastui-editor-ext.git
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li>npm으로 튜토리얼을 진행에 필요한 개발 환경을 설치합니다.</li>
+</ol>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>npm install
+</pre></div>
+</div>
+</div>
+<div class="section" id="toast-ui-editor">
+<h2>2.2. TOAST UI Editor 설치<a class="headerlink" href="#toast-ui-editor" title="제목 주소">¶</a></h2>
+<p>npm을 통해 TOAST UI를 디펜던시로 설치합니다.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>npm install tui-editor
+</pre></div>
+</div>
+</div>
+<div class="section" id="id2">
+<h2>2.3. 개발 서버 실행<a class="headerlink" href="#id2" title="제목 주소">¶</a></h2>
+<p>미리 설정된 개발 서버를 실행합니다.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>npm run server
+</pre></div>
+</div>
+</div>
 </div>
 
 

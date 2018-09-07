@@ -2,20 +2,23 @@
 개요
 ****
 
-// 내용
+TOAST UI Editor는 ...
 
 학습할 내용
 ============
 
-* // 내용
+* TOAST UI Editor 를 설치하고 생성합니다.
+* TOAST UI Editor 의 확장 기능을 구현합니다.
 
 준비물
 ======
 
-* // 내용
+* 코드 편집 에디터
+* 브라우저
+* Node.js
 
 소스 코드
 ==========
 
-* https://github.com/nhnent/hands-on-labs.XXX
+* https://github.com/shiren/hands-on-labs.toastui-editor-ext
 
