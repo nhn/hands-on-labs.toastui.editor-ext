@@ -2,20 +2,24 @@
 개요
 ****
 
-// 내용
+TOAST UI Editor는 마크다운 기반의 문서 편집기입니다. 마크다운과 위지윅모드로 사용자가 원하는 환경에서 문서를 편집할 수 있습니다.
+편집한 결과물은 에디터에서 마크다운 텍스트나 HTML 텍스트로 저장할 수 있습니다. 에디터를 서비스에 적용하는 방법과 간단한 익스텐션을 만들어 보겠습니다.
 
 학습할 내용
 ============
 
-* // 내용
+* TOAST UI Editor 를 설치하고 생성합니다.
+* TOAST UI Editor 의 확장 기능을 구현합니다.
 
 준비물
 ======
 
-* // 내용
+* 코드 편집 에디터
+* 브라우저
+* Node.js
 
 소스 코드
 ==========
 
-* https://github.com/nhnent/hands-on-labs.XXX
+* https://github.com/shiren/hands-on-labs.toastui-editor-ext
 
