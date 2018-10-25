@@ -9,6 +9,7 @@ HTML 파일에 에디터가 들어갈 공간을 만들고 에디터를 생성합
    .. code-block:: html
                    
       <body>
+        <h1>TOAST UI Editor</h1>
         <div id="editorSection"></div>
       </body>
 
@@ -24,7 +25,7 @@ HTML 파일에 에디터가 들어갈 공간을 만들고 에디터를 생성합
       var Editor = require('tui-editor');
 
       var editor = new Editor({
-        el: document.querySelector('#editSection'),
+        el: document.querySelector('#editorSection'),
         initialEditType: 'markdown',
         previewStyle: 'vertical',
         height: '300px'

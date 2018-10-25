@@ -7,14 +7,19 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js$/,
-        use: 'eslint-loader'
+        test: /\.css$/,
+        use: [MiniCssExtractPlugin.loader, 'css-loader']
       },
       {
-        test: /\.css$/,
+        test: /\.(gif|png|jpe?g|svg)$/i,
         use: [
-          MiniCssExtractPlugin.loader,
-          'css-loader'
+          'file-loader',
+          {
+            loader: 'image-webpack-loader',
+            options: {
+              disable: true // webpack@2.x and newer
+            }
+          }
         ]
       }
     ]
