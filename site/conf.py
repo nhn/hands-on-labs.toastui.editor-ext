@@ -43,7 +43,7 @@ source_suffix = ['.rst', '.md']
 from recommonmark.parser import CommonMarkParser
 
 source_parsers = {
-	'.md': CommonMarkParser,
+        '.md': CommonMarkParser,
 }
 
 #source_suffix = '.rst'
@@ -57,9 +57,9 @@ source_encoding = 'utf-8'
 master_doc = 'index'
 
 # General information about the project.
-project = 'Dooray! Messenger Incoming Hook Sample'
+project = 'TOAST UI Editor Extension Development'
 copyright = 'NHN Entertainment'
-author = 'cybaek'
+author = 'shiren'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -297,7 +297,7 @@ latex_documents = [
 #
 # latex_appendices = []
 
-# It false, will not define \strong, \code, 	itleref, \crossref ... but only
+# It false, will not define \strong, \code,     itleref, \crossref ... but only
 # \sphinxstrong, ..., \sphinxtitleref, ... To help avoid clash with user added
 # packages.
 #
@@ -348,5 +348,3 @@ texinfo_documents = [
 # If true, do not generate a @detailmenu in the "Top" node's menu.
 #
 # texinfo_no_detailmenu = False
-
-

@@ -13,7 +13,7 @@ HTML
 
 .. code-block:: javascript
 
-                // app.js 파일 하단에 아래의 코드를 입력해 확인해 보세요~
+                // index.js 파일 하단에 아래의 코드를 입력해 확인해 보세요~
                 editor.setHTML('<h1>HELLO WORLD</h1>');
                 console.log(editor.getHTML());
   
@@ -27,7 +27,7 @@ Markdown
 
 .. code-block:: javascript
                   
-                // app.js 파일 하단에 아래의 코드를 입력해 확인해 보세요~
+                // index.js 파일 하단에 아래의 코드를 입력해 확인해 보세요~
                 editor.setMarkdown('# HELLO WORLD');
                 console.log(editor.getMarkdown());
   

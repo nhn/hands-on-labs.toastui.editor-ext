@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>3. 에디터 생성하기 &mdash; Dooray! Messenger Incoming Hook Sample 1.0 documentation</title>
+  <title>3. 에디터 생성하기 &mdash; TOAST UI Editor Extension Development 1.0 documentation</title>
   
 
   
@@ -48,7 +48,7 @@
           
 
           
-            <a href="index.html" class="icon icon-home"> Dooray! Messenger Incoming Hook Sample
+            <a href="index.html" class="icon icon-home"> TOAST UI Editor Extension Development
           
 
           
@@ -98,7 +98,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">Dooray! Messenger Incoming Hook Sample</a>
+          <a href="index.html">TOAST UI Editor Extension Development</a>
         
       </nav>
 
@@ -152,13 +152,13 @@
 <ol class="arabic">
 <li><p class="first"><strong>src/index.html</strong> 파일을 열어 <strong>body</strong> 태그 안에 에디터가 들어갈 엘리먼트를 만들어 줍니다.</p>
 <div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>TOAST UI Editor<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;editorSection&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-  <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;./bundle.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span> <span class="c">&lt;!-- 지우지 마세요~ --!&gt;</span>
-<span class="c">&lt;/body&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
 </pre></div>
 </div>
 </li>
-<li><p class="first"><strong>src/app.js</strong> 파일을 열어 에디터를 생성하는 코드를 만듭니다.</p>
+<li><p class="first"><strong>src/index.js</strong> 파일을 열어 에디터를 생성하는 코드를 만듭니다.</p>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;codemirror/lib/codemirror.css&#39;</span><span class="p">)</span> <span class="c1">// codemirror</span>
 <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;tui-editor/dist/tui-editor.css&#39;</span><span class="p">);</span> <span class="c1">// editor ui</span>
 <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;tui-editor/dist/tui-editor-contents.css&#39;</span><span class="p">);</span> <span class="c1">// editor content</span>
@@ -167,7 +167,7 @@
 <span class="kd">var</span> <span class="nx">Editor</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;tui-editor&#39;</span><span class="p">);</span>
 
 <span class="kd">var</span> <span class="nx">editor</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Editor</span><span class="p">({</span>
-  <span class="nx">el</span><span class="o">:</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;#editSection&#39;</span><span class="p">),</span>
+  <span class="nx">el</span><span class="o">:</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;#editorSection&#39;</span><span class="p">),</span>
   <span class="nx">initialEditType</span><span class="o">:</span> <span class="s1">&#39;markdown&#39;</span><span class="p">,</span>
   <span class="nx">previewStyle</span><span class="o">:</span> <span class="s1">&#39;vertical&#39;</span><span class="p">,</span>
   <span class="nx">height</span><span class="o">:</span> <span class="s1">&#39;300px&#39;</span>
@@ -175,7 +175,7 @@
 </pre></div>
 </div>
 </li>
-<li><p class="first">브라우저에서 에디터가 생성되었는지 확인합니다.</p>
+<li><p class="first">서버에 접속한 브라우저에서 에디터가 생성되었는지 확인합니다. 코드를 수정하면 브라우저는 자동으로 리프레시됩니다.</p>
 </li>
 </ol>
 </div>
