@@ -1,5 +1,5 @@
 ##############################
-TOASTUI Editor 설치 및 서버 실행
+TOAST UI Editor 설치 및 서버 실행
 ##############################
 
 
@@ -10,7 +10,7 @@ TOASTUI Editor 설치 및 서버 실행
 
 .. code-block:: sh
                 
-   git clone https://github.com/shiren/hands-on-labs.toastui-editor-ext.git
+   git clone https://github.com/nhnent/hands-on-labs.toastui.editor-ext.git
 
 2. npm으로 튜토리얼을 진행에 필요한 개발 환경을 설치합니다.
 
@@ -21,7 +21,7 @@ TOASTUI Editor 설치 및 서버 실행
 TOAST UI Editor 설치
 ===================
 
-npm을 통해 TOAST UI를 디펜던시로 설치합니다.
+npm을 통해 TOAST UI Editor를 디펜던시로 설치합니다.
 
 .. code-block:: sh
                 

@@ -22,9 +22,9 @@ HTML 파일에 에디터가 들어갈 공간을 만들고 에디터를 생성합
       require('tui-editor/dist/tui-editor-contents.css'); // editor content
       require('highlight.js/styles/github.css'); // code block highlight
 
-      var Editor = require('tui-editor');
+      const Editor = require('tui-editor');
 
-      var editor = new Editor({
+      const editor = new Editor({
         el: document.querySelector('#editorSection'),
         initialEditType: 'markdown',
         previewStyle: 'vertical',

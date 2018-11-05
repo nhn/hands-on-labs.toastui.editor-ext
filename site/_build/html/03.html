@@ -164,9 +164,9 @@
 <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;tui-editor/dist/tui-editor-contents.css&#39;</span><span class="p">);</span> <span class="c1">// editor content</span>
 <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;highlight.js/styles/github.css&#39;</span><span class="p">);</span> <span class="c1">// code block highlight</span>
 
-<span class="kd">var</span> <span class="nx">Editor</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;tui-editor&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">Editor</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;tui-editor&#39;</span><span class="p">);</span>
 
-<span class="kd">var</span> <span class="nx">editor</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Editor</span><span class="p">({</span>
+<span class="kr">const</span> <span class="nx">editor</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Editor</span><span class="p">({</span>
   <span class="nx">el</span><span class="o">:</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;#editorSection&#39;</span><span class="p">),</span>
   <span class="nx">initialEditType</span><span class="o">:</span> <span class="s1">&#39;markdown&#39;</span><span class="p">,</span>
   <span class="nx">previewStyle</span><span class="o">:</span> <span class="s1">&#39;vertical&#39;</span><span class="p">,</span>
