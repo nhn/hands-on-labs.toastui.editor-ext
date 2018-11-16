@@ -34,4 +34,4 @@ npm을 통해 TOAST UI Editor를 디펜던시로 설치합니다.
 
 .. code-block:: sh
                 
-   npm run server
+   npm run serve
