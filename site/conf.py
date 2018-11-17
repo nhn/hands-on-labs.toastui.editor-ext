@@ -59,7 +59,7 @@ master_doc = 'index'
 # General information about the project.
 project = 'TOAST UI Editor Extension Development'
 copyright = 'NHN Entertainment'
-author = 'shiren'
+author = ''
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -348,3 +348,7 @@ texinfo_documents = [
 # If true, do not generate a @detailmenu in the "Top" node's menu.
 #
 # texinfo_no_detailmenu = False
+
+
+def setup(app):
+    app.add_stylesheet('css/custom.css')
