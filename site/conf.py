@@ -58,7 +58,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = 'TOAST UI Editor Extension Development'
-copyright = 'NHN Entertainment'
+copyright = 'NHN Corp. All rights reserved.'
 author = ''
 
 # The version info for the project you're documenting, acts as replacement for
