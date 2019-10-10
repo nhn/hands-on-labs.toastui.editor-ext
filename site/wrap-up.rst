@@ -5,8 +5,8 @@
 학습한 내용
 =================
 
-* TOAST UI Editor 를 설치하고 생성해봤습니다.
-* TOAST UI Editor 의 확장 기능을 구현해 봤습니다.
+* TOAST UI Editor를 설치하고 생성해 보았습니다.
+* TOAST UI Editor의 확장 기능을 구현해 보았습니다.
 
 
 다음 단계
