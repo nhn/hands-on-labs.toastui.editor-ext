@@ -13,7 +13,7 @@ TOAST UI Editor는 에디터에서 제공하는 API들을 통해 기능을 확�
 
 .. code-block:: javascript
 
-  const Editor = require('tui-editor');
+  import Editor from 'tui-editor';
               
   Editor.defineExtension('myExt', instance => {
     console.log('extension initialized!!', instance);

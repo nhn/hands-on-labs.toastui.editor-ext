@@ -17,12 +17,12 @@ HTML 파일에 에디터가 들어갈 공간을 만들고 에디터를 생성합
 
 .. code-block:: javascript
 
-  require('codemirror/lib/codemirror.css'); // codemirror
-  require('tui-editor/dist/tui-editor.css'); // editor ui
-  require('tui-editor/dist/tui-editor-contents.css'); // editor content
-  require('highlight.js/styles/github.css'); // code block highlight
+  import 'codemirror/lib/codemirror.css'; // codemirror
+  import 'tui-editor/dist/tui-editor.css'; // editor ui
+  import 'tui-editor/dist/tui-editor-contents.css'; // editor content
+  import 'highlight.js/styles/github.css'; // code block highlight
 
-  const Editor = require('tui-editor');
+  import Editor from 'tui-editor';
 
   const editor = new Editor({
     el: document.querySelector('#editorSection'),
