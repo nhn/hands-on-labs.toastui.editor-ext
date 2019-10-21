@@ -21,5 +21,9 @@ TOAST UI Editor는 마크다운 기반의 문서 편집기입니다. 마크다�
 소스 코드
 ==========
 
-* https://github.com/nhn/hands-on-labs.toastui.editor-ext
+* |https://github.com/nhn/hands-on-labs.toastui.editor-ext|
+
+.. |https://github.com/nhn/hands-on-labs.toastui.editor-ext| raw:: html 
+
+  <a href="https://github.com/nhn/hands-on-labs.toastui.editor-ext" target="_blank">https://github.com/nhn/hands-on-labs.toastui.editor-ext</a>
 
