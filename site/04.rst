@@ -26,7 +26,6 @@ HTML
 ==============================
 
 .. image:: _static/step04-1.png
-.. image:: _static/step04-2.png
 
 
 =============
@@ -46,5 +45,4 @@ Markdown
 결과 화면
 ==============================
 
-.. image:: _static/step04-3.png
-.. image:: _static/step04-4.png
+.. image:: _static/step04-2.png
