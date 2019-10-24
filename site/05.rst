@@ -1,33 +1,73 @@
 ##################################
-콘텐츠의 저장과 로드
+익스텐션 추가하기
 ##################################
 
-TOAST UI Editor는 기본적으로 마크다운 텍스트로 입력받고 출력합니다. 에디터를 사용하는 유저는 마크다운 모드에서 혹은 위지윅 모드에서 문서를 편집할 수 있지만 편집된 내용을 저장할 때는 마크다운 텍스트로 저장됩니다. 하지만 개발 편의를 위해 HTML 데이트를 입력하거나 출력할 수 있는 API도 제공하고 있습니다.
+TOAST UI Editor는 **에디터에서 제공하는 API들을 통해 기능을 확장** 할 수 있습니다.
+그런 확장 기능들을 **익스텐션** 이라고 합니다.
+Scroll Sync, Color, Table 등의 기능들은 에디터에 내장된 것이 아닌 익스텐션으로 구현되어 상황에 따라 넣고 빼고 할 수 있습니다.
+특정 기능들은 시스템 리소스를 많이 사용해야 할 수밖에 없습니다.
+물론 기능이 많을수록 성능에 영향을 줄 수 있습니다.
+이런 기능들은 익스텐션으로 구현하면 필요한 상황에서만 사용하고 필요 없는 경우는 쉽게 제거할 수 있습니다.
 
-=============
-HTML
-=============
+익스텐션을 정의하고 사용하는 방법을 익혀봅시다.
 
-- setHtml(html): 인자로 전달하는 HTML 텍스트로 에디터의 콘텐츠를 변경합니다.
-- getHtml(): 현재 편집 중인 콘텐츠를 HTML 텍스트로 받습니다.
+*- 주의 : 이전 스텝에서 실습했던 API 호출 코드는 제거하고 작성합니다.*
+
+=======================
+익스텐션의 정의
+=======================
+
+익스텐션은 에디터의 *정적 메서드* 인 **defineExtension()** 메서드를 사용해 정의합니다.
+익스텐션의 이름과 익스텐션을 정의할 함수를 인자로 전달합니다.
+익스텐션 정의 함수는 해당 익스텐션을 사용하는 에디터가 생성될 때마다 실행되며 인자로 인스턴스를 전달받습니다.
+해당 인스턴스를 API를 통해 확장할 수도 있습니다.
+
+**index.js** 파일을 열어 에디터를 생성하는 코드 위쪽에 아래의 코드를 입력합니다.
+에디터 인스턴스를 생성하기 전에 익스텐션을 정의해야 사용할 수 있습니다.
+
+그리고 익스텐션이 정상적으로 정의되었는지 확인하기 위해, 익스텐션 정의 함수 안에 ``setMarkdown`` API를 호출하여 에디터 콘텐츠를 변경하는 코드를 추가해봅니다.
 
 .. code-block:: javascript
 
-  // index.js 파일 하단에 아래의 코드를 입력해 확인해 보세요.
-  editor.setHtml('<h1>HELLO WORLD</h1>');
-  console.log(editor.getHTML());
-  
+  // ...
 
-=============
-Markdown
-=============
+  import Editor from 'tui-editor';
+              
+  Editor.defineExtension('myExt', instance => { // 익스텐션 정의
+    instance.setMarkdown('# Hello Hands on Labs!');
+  });
 
-- setMarkdown(markdown): 인자로 전달하는 마크다운 텍스트로 에디터의 콘텐츠를 변경합니다.
-- getMarkdown(): 현재 편집 중인 콘텐츠를 마크다운 텍스트로 받습니다.
+  const editor = new Editor({ // 에디터 인스턴스 생성
+    el: document.querySelector('#editor'),
+    initialEditType: 'markdown',
+    previewStyle: 'vertical',
+    height: '500px'
+  });
+
+
+=======================
+익스텐션의 사용
+=======================   
+
+에디터에서 사용하고자 하는 익스텐션은 에디터를 생성 옵션 **exts** 에 익스텐션의 이름의 배열로 전달합니다.
+에디터 생성 옵션 **exts** 를 추가하고 위에서 정의한 익스텐션 이름을 입력합니다.
+**index.js** 파일의 에디터 생성 코드를 수정해 익스텐션이 실행되는지 확인해 봅니다.
 
 .. code-block:: javascript
-                  
-  // index.js 파일 하단에 아래의 코드를 입력해 확인해 보세요.
-  editor.setMarkdown('# HELLO WORLD');
-  console.log(editor.getMarkdown());
+
+  // ...  
+   
+  const editor = new Editor({
+    el: document.querySelector('#editor'),
+    initialEditType: 'markdown',
+    previewStyle: 'vertical',
+    height: '500px',
+    exts: ['myExt'] // 익스텐션 옵션 추가
+  });
+
+
+결과 화면
+==============================
+
+.. image:: _static/step05.png
 

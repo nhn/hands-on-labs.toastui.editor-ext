@@ -1,42 +1,53 @@
-##################################
-TOAST UI Editor 설치 및 서버 실행
-##################################
-
+############################################
+TOAST UI Editor 설치 및 서버 실행하기
+############################################
 
 프로젝트 설치
-=============
+==============================
 
-1. 터미널을 열어 프로젝트를 클론 받습니다.
+터미널을 열어 미리 준비된 프로젝트를 클론 받습니다.
 
-.. code-block:: sh
-                
-   git clone https://github.com/nhn/hands-on-labs.toastui.editor-ext.git
+.. code-block:: shell
 
-2. npm으로 튜토리얼을 진행에 필요한 개발 환경을 설치합니다.
+  git clone https://github.com/nhn/hands-on-labs.toastui.editor-ext
 
-.. code-block:: sh
-                
-   npm install
 
 TOAST UI Editor 설치
-=====================
+==============================
 
-npm을 통해 TOAST UI Editor를 디펜던시로 설치합니다.
+TOAST UI Editor는 |npm| 으로 제공됩니다.
+아래와 같이 프로젝트 폴더로 이동한 후 패키지와 TOAST UI Editor를 설치합니다.
 
-.. code-block:: sh
-                
-   npm install tui-editor
+.. |npm| raw:: html 
+
+  <a href="https://www.npmjs.com" target="_blank">npm</a>
+
+.. code-block:: shell
+
+  cd hands-on-labs.toastui.editor-ext
+  npm install
+  npm install tui-editor
+
 
 개발 서버 실행
-===============
+==============================
 
-미리 설정된 개발 서버를 실행합니다. 서버 실행이 완료되면 브라우저로 |http://localhost:8080/| 에 접속합니다.
+번들러는 |Webpack| 을 사용하고 |devServer| 를 사용하여 개발 서버를 설정해 두었습니다.
+아래와 같이 간단히 개발 서버를 실행하고 브라우저로 |localhost| 에 접속합니다.
+앞으로 실습하는 모든 결과는 이 개발 서버에서 확인합니다.
 
-.. |http://localhost:8080/| raw:: html 
+.. |Webpack| raw:: html 
 
-  <a href="http://localhost:8080/" target="_blank">http://localhost:8080/</a>
+  <a href="https://webpack.js.org" target="_blank">Webpack</a>
 
+.. |devServer| raw:: html 
 
-.. code-block:: sh
-                
-   npm run serve
+  <a href="https://github.com/webpack/webpack-dev-server" target="_blank">webpack-dev-server</a>
+
+.. |localhost| raw:: html 
+
+  <a href="http://localhost:8080" target="_blank">http://localhost:8080</a>
+
+.. code-block:: shell
+
+  npm run serve

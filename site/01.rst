@@ -1,29 +1,28 @@
-##################################
+########################################
 개요
-##################################
+########################################
 
-TOAST UI Editor는 마크다운 기반의 문서 편집기입니다. 마크다운과 위지윅모드로 사용자가 원하는 환경에서 문서를 편집할 수 있습니다.
-편집한 결과물은 에디터에서 마크다운 텍스트나 HTML 텍스트로 저장할 수 있습니다. 에디터를 서비스에 적용하는 방법과 간단한 익스텐션을 만들어 보겠습니다.
+TOAST UI Editor는 FE개발랩에서 개발한 오픈소스 자바스크립트 라이브러리입니다.
+TOAST UI Editor를 사용해 마크다운과 위지윅 모드로 사용자가 원하는 환경에서 문서를 편집할 수 있습니다.
+이번 핸즈온 랩스에서 TOAST UI Editor를 경험해보고 서비스에 직접 적용해 보세요!
 
 학습할 내용
 ============
 
-* TOAST UI Editor를 설치하고 생성합니다.
-* TOAST UI Editor의 익스텐션을 구현합니다.
+* TOAST UI Editor 유튜브 익스텐션 개발하기
 
 준비물
 ======
 
-* 코드 편집 에디터
-* 브라우저
+* 익숙한 편집기
 * Node.js
+* 크롬 브라우저
 
 소스 코드
 ==========
 
-* |https://github.com/nhn/hands-on-labs.toastui.editor-ext|
+* |link_1|
 
-.. |https://github.com/nhn/hands-on-labs.toastui.editor-ext| raw:: html 
+.. |link_1| raw:: html 
 
-  <a href="https://github.com/nhn/hands-on-labs.toastui.editor-ext" target="_blank">https://github.com/nhn/hands-on-labs.toastui.editor-ext</a>
-
+  <a href="https://github.com/nhn/hands-on-labs.toastui.editor-ext" target="_blank">Github</a>

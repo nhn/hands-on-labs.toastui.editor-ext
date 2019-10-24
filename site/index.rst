@@ -18,5 +18,4 @@ TOAST UI Editor 유튜브 익스텐션 개발하기
    04
    05
    06
-   07
    wrap-up
