@@ -36,6 +36,7 @@ codeBlockManager 사용
   ```youtube
   Hello TOAST UI Editor!
   ```
+  
 
 프리뷰 창을 확인하면 마크다운 코드 블록이 입력한 내용이 익스텐션에 의해 변환되어 출력됩니다.
 
@@ -76,7 +77,8 @@ codeBlockManager 사용
                 
   ```youtube
   xu70m8pOZJE
-  ```  
+  ```
+
                 
 마지막으로 프리뷰창을 확인하면 유튜브 영상이 나올 것입니다.
 
