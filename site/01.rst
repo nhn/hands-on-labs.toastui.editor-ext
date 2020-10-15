@@ -9,7 +9,7 @@ TOAST UI Editor를 사용해 마크다운과 위지윅 모드로 사용자가 �
 학습할 내용
 ============
 
-* TOAST UI Editor 유튜브 익스텐션 개발하기
+* TOAST UI Editor 유튜브 플러그인 개발하기
 
 준비물
 ======
@@ -25,4 +25,4 @@ TOAST UI Editor를 사용해 마크다운과 위지윅 모드로 사용자가 �
 
 .. |link_1| raw:: html 
 
-  <a href="https://github.com/nhn/hands-on-labs.toastui.editor-ext" target="_blank">Github</a>
+  <a href="https://github.com/nhn/hands-on-labs.toastui.editor-ext" target="_blank">GitHub</a>
