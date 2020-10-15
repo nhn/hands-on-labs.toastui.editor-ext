@@ -43,12 +43,10 @@ HTML 초기 코드 작성
 
   // src/index.js
 
-  import 'codemirror/lib/codemirror.css'; // codemirror 스타일
-  import 'highlight.js/styles/github.css'; // code block highlight 스타일
-  import 'tui-editor/dist/tui-editor.css'; // 에디터 기본 UI 스타일
-  import 'tui-editor/dist/tui-editor-contents.css'; // 에디터 콘텐츠 영역 스타일
-  
-  import Editor from 'tui-editor';
+  import 'codemirror/lib/codemirror.css'; // CodeMirror 스타일 (마크다운 에디터의 디펜던시)
+  import '@toast-ui/editor/dist/toastui-editor.css'; // TOAST UI Editor 기본 스타일
+
+  import Editor from '@toast-ui/editor';
 
   const editor = new Editor({ // 에디터 인스턴스 생성
     el: document.querySelector('#editor'),

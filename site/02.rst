@@ -26,7 +26,7 @@ TOAST UI Editor는 |npm| 으로 제공됩니다.
 
   cd hands-on-labs.toastui.editor-ext
   npm install
-  npm install tui-editor
+  npm install @toast-ui/editor
 
 
 개발 서버 실행

@@ -1,37 +1,36 @@
 ##################################
-유튜브 익스텐션 개발하기
+유튜브 플러그인 개발하기
 ##################################
 
-이제 간단한 익스텐션을 개발해보겠습니다.
-기능은 **간단한 문법으로 유튜브 영상을 콘텐츠에 포함할 수 있는 익스텐션** 입니다.
-이 익스텐션을 구현하기 전에 필요한 API부터 확인해 보겠습니다.
+이제 **코드 블록 구문을 사용해 유튜브 영상을 콘텐츠에 포함할 수 있는 플러그인** 을 만들어보겠습니다.
+이 플러그인을 구현하기 전에 필요한 API부터 확인해 보겠습니다.
 
-*- 주의 : 이전 스텝에서 실습했던 'myExt' 익스텐션 추가 코드는 제거하고 작성합니다.*
+*- 주의 : 이전 스텝에서 실습했던 차트 및 커스텀 플러그인 함수 관련 코드는 제거하고 작성합니다.*
 
 
 codeBlockManager 사용
 ==============================
 
-**codeBlockManager** 은 마크다운 코드의 코드 블록에 관련된 기능들이 모여있는 모듈입니다.
+**codeBlockManager** 은 마크다운 구문 중 코드 블록에 관련된 기능들이 모여있는 모듈입니다.
 
-마크다운 코드 블록을 확장해서 코드 블록이 유튜브 영상으로 변환되도록 만들 것입니다.
+차트 플러그인을 사용할 때 입력했던 것처럼 마크다운 코드 블록 구문을 확장해서 코드 블록이 유튜브 영상으로 변환되도록 만들 것입니다.
 아래 코드와 같이 ``codeBlockManager`` 의 ``setReplacer`` 메서드를 사용합니다.
-코드 블록 사용 언어로, ``'youtube'`` 를 사용합니다.
+코드 블록 구문에서 사용하는 언어 값은 ``'youtube'`` 를 사용합니다.
 
 .. code-block:: javascript
 
   // ...
 
-  Editor.defineExtension('youtube', () => {
+  function youtubePlugin() {
     Editor.codeBlockManager.setReplacer('youtube', code => `play youtube id: ${code}`);
-  });
+  }
 
   const editor = new Editor({
-    // ...,
-    exts: ['youtube']
+    // ...
+    plugins: [youtubePlugin]
   });
 
-브라우저가 리프레시되면 익스텐션 동작을 확인하고, 마크다운 에디터에 직접 아래 코드 블록을 입력해봅니다.
+플러그인이 동작하는지 확인하기 위해 마크다운 에디터에 아래와 같이 코드 블록 구문을 입력해봅니다.
 
 .. code-block:: md
 
@@ -40,22 +39,24 @@ codeBlockManager 사용
   ```
   
 
-프리뷰 창을 확인하면 마크다운 코드 블록에 입력한 내용이 익스텐션에 의해 변환되어 출력됩니다.
+오른쪽 프리뷰 화면에 마크다운 코드 블록에 입력한 내용이 플러그인에 의해 변환되어 출력됩니다.
 
 
 유튜브 영상 추가
 ==============================
 
-이제 유튜브 동영상으로 변환해봅니다.
+이제 유튜브 동영상으로 변환해보겠습니다.
 
-유튜브 동영상은 ``iframe`` 으로 쉽게 삽입할 수 있지만 보안 이슈로 TOAST UI 에디터는 ``iframe`` 을 모두 제거합니다.
-그래서 ``div`` 를 하나 만들고 다음 프레임에 ``iframe`` 을 추가합니다.
+유튜브 동영상은 ``iframe`` 태그를 사용해 쉽게 삽입할 수 있지만, TOAST UI Editor에서는 보안 이슈 때문에 ``iframe`` 태그를 모두 제거합니다.
+그래서 ``div`` 를 하나 만들고 다음 프레임에 ``iframe`` 을 추가해야 원하는 동작을 구현할 수 있습니다.
+
+입력된 유튜브 코드로 URL을 생성하고 ``iframe`` 이 생성되도록 다음과 같이 ``youtubePlugin`` 함수를 수정합니다.
 
 .. code-block:: javascript
 
   // ...
 
-  Editor.defineExtension('youtube', () => {
+  function youtubePlugin() {
     Editor.codeBlockManager.setReplacer('youtube', youtubeId => {
       const wrapperId = `yt${Math.random().toString(36).substr(2, 10)}`;
 
@@ -63,7 +64,7 @@ codeBlockManager 사용
       
       return `<div id="${wrapperId}"></div>`;
     });
-  });
+  }
 
   function renderYoutube(wrapperId, youtubeId) {
     const el = document.querySelector(`#${wrapperId}`);
@@ -72,8 +73,7 @@ codeBlockManager 사용
 
   // ...
 
-에디터에서 코드 블록을 수정합니다.
-코드 블록 내용에 **유튜브 영상 주소** 를 입력합니다.
+마크다운 에디터에서 코드 블록 구문을 입력하고 코드 블록 내용에 **유튜브 영상 코드** 를 입력합니다.
 
 .. code-block:: md
                 
@@ -82,7 +82,7 @@ codeBlockManager 사용
   ```
 
                 
-마지막으로 프리뷰창을 확인하면 유튜브 영상이 나올 것입니다.
+마지막으로 프리뷰 화면에서 유튜브 영상이 출력되는지 확인합니다.
 
 
 결과 화면
@@ -91,5 +91,6 @@ codeBlockManager 사용
 .. image:: _static/step06.png
 
 
-축하합니다. TOAST UI Editor의 첫 익스텐션을 완성했습니다! 🎉
+
+축하합니다. TOAST UI Editor의 첫 커스텀 플러그인을 완성했습니다! 🎉
 

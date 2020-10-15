@@ -30,7 +30,8 @@
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-extensions = []
+from recommonmark.parser import CommonMarkParser
+extensions = ['recommonmark']
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -40,10 +41,9 @@ templates_path = ['_templates']
 #
 source_suffix = ['.rst', '.md']
 
-from recommonmark.parser import CommonMarkParser
 
 source_parsers = {
-        '.md': CommonMarkParser,
+    '.md': CommonMarkParser,
 }
 
 #source_suffix = '.rst'
@@ -57,7 +57,7 @@ source_encoding = 'utf-8'
 master_doc = 'index'
 
 # General information about the project.
-project = u'TOAST UI Editor 유튜브 익스텐션 개발하기'
+project = 'TOAST UI Editor 유튜브 플러그인 개발하기'
 copyright = 'NHN Corp. All rights reserved.'
 author = ''
 
@@ -250,21 +250,21 @@ htmlhelp_basename = 'holdoc'
 # -- Options for LaTeX output ---------------------------------------------
 
 latex_elements = {
-     # The paper size ('letterpaper' or 'a4paper').
-     #
-     'papersize': 'a4paper',
+    # The paper size ('letterpaper' or 'a4paper').
+    #
+    'papersize': 'a4paper',
 
-     # The font size ('10pt', '11pt' or '12pt').
-     #
-     'pointsize': '12pt',
+    # The font size ('10pt', '11pt' or '12pt').
+    #
+    'pointsize': '12pt',
 
-     # Additional stuff for the LaTeX preamble.
-     #
-     # 'preamble': '',
+    # Additional stuff for the LaTeX preamble.
+    #
+    # 'preamble': '',
 
-     # Latex figure (float) alignment
-     #
-     # 'figure_align': 'htbp',
+    # Latex figure (float) alignment
+    #
+    # 'figure_align': 'htbp',
 }
 
 # Grouping the document tree into LaTeX files. List of tuples
