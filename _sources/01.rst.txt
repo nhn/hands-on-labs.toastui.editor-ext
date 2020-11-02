@@ -1,0 +1,28 @@
+########################################
+개요
+########################################
+
+TOAST UI Editor는 FE개발랩에서 개발한 오픈소스 자바스크립트 라이브러리입니다.
+TOAST UI Editor를 사용해 마크다운과 위지윅 모드로 사용자가 원하는 환경에서 문서를 편집할 수 있습니다.
+이번 핸즈온 랩스에서 TOAST UI Editor를 경험해보고 서비스에 직접 적용해 보세요!
+
+학습할 내용
+============
+
+* TOAST UI Editor 유튜브 플러그인 개발하기
+
+준비물
+======
+
+* 익숙한 편집기
+* Node.js
+* 크롬 브라우저
+
+소스 코드
+==========
+
+* |link_1|
+
+.. |link_1| raw:: html 
+
+  <a href="https://github.com/nhn/hands-on-labs.toastui.editor-ext" target="_blank">GitHub</a>

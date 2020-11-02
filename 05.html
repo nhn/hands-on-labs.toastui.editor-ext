@@ -1,0 +1,314 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="ko" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>5. 플러그인 추가하기 &mdash; TOAST UI Editor 유튜브 플러그인 개발하기 1.0 문서</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+        <script src="_static/translations.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="색인" href="genindex.html" />
+    <link rel="search" title="검색" href="search.html" />
+    <link rel="next" title="6. 유튜브 플러그인 개발하기" href="06.html" />
+    <link rel="prev" title="4. 콘텐츠 저장과 로드하기" href="04.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> TOAST UI Editor 유튜브 플러그인 개발하기
+          
+
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="01.html">1. 개요</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02.html">2. TOAST UI Editor 설치 및 서버 실행하기</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03.html">3. 에디터 생성하기</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04.html">4. 콘텐츠 저장과 로드하기</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">5. 플러그인 추가하기</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">5.1. 플러그인 설치 및 가져오기</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">5.2. 플러그인 활성화하기</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">5.3. 커스텀 플러그인 만들기</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id5">5.4. 결과 화면</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id6">5.4.1. 차트 플러그인 실행 결과</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">5.4.2. 커스텀 플러그인 실행 결과</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="06.html">6. 유튜브 플러그인 개발하기</a></li>
+<li class="toctree-l1"><a class="reference internal" href="wrap-up.html">7. 정리</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">TOAST UI Editor 유튜브 플러그인 개발하기</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li><span class="section-number">5. </span>플러그인 추가하기</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1><span class="section-number">5. </span>플러그인 추가하기<a class="headerlink" href="#id1" title="제목 주소">¶</a></h1>
+<p>TOAST UI Editor는 다양한 플러그인을 제공하고 있습니다.</p>
+<p><a href="https://github.com/nhn/tui.editor/tree/master/plugins/chart" target="_blank">차트</a>, <a href="https://github.com/nhn/tui.editor/tree/master/plugins/uml" target="_blank">UML</a>, <a href="https://github.com/nhn/tui.editor/tree/master/plugins/table-merged-cell" target="_blank">셀 병합 테이블</a>, <a href="https://github.com/nhn/tui.editor/tree/master/plugins/color-syntax" target="_blank">컬러 신택스</a>, <a href="https://github.com/nhn/tui.editor/tree/master/plugins/code-syntax-highlight" target="_blank">코드 신택스 하이라이팅</a> 총 5가지의 기본 플러그인을 제공하며, 사용자가 직접 플러그인을 구현할 수도 있습니다.</p>
+<p>플러그인을 정의하고 사용하는 방법을 익혀봅시다.</p>
+<p><em>- 주의 : 이전 스텝에서 실습했던 API 호출 코드는 제거하고 작성합니다.</em></p>
+<div class="section" id="id2">
+<h2><span class="section-number">5.1. </span>플러그인 설치 및 가져오기<a class="headerlink" href="#id2" title="제목 주소">¶</a></h2>
+<p>TOAST UI Editor의 각 플러그인은 npm 패키지로 제공합니다.
+플러그인을 사용하려면 에디터를 설치할 때와 같이 npm으로 패키지를 설치한 다음 모듈로 가져와서 사용해야 합니다.</p>
+<p>예제에서는 <strong>차트 플러그인</strong> 을 사용해보도록 하겠습니다.
+먼저 <code class="docutils literal notranslate"><span class="pre">npm</span> <span class="pre">install</span></code> 을 실행하여 차트 플러그인을 설치합니다.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>npm install @toast-ui/editor-plugin-chart
+</pre></div>
+</div>
+<p>설치가 완료되면 <strong>index.js</strong> 파일을 열고 플러그인과 관련된 모듈들을 가져오는 코드를 파일 상단에 추가합니다.</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="s1">&#39;codemirror/lib/codemirror.css&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="s1">&#39;@toast-ui/editor/dist/toastui-editor.css&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="s1">&#39;tui-chart/dist/tui-chart.css&#39;</span><span class="p">;</span> <span class="c1">// 추가 - 차트 스타일</span>
+
+<span class="kr">import</span> <span class="nx">Editor</span> <span class="nx">from</span> <span class="s1">&#39;@toast-ui/editor&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="nx">chart</span> <span class="nx">from</span> <span class="s1">&#39;@toast-ui/editor-plugin-chart&#39;</span><span class="p">;</span> <span class="c1">// 추가 - 차트 플러그인</span>
+
+<span class="c1">// ...</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id3">
+<h2><span class="section-number">5.2. </span>플러그인 활성화하기<a class="headerlink" href="#id3" title="제목 주소">¶</a></h2>
+<p>TOAST UI Editor서 플러그인을 활성화하려면 <code class="docutils literal notranslate"><span class="pre">plugins</span></code> 옵션을 사용합니다.
+<code class="docutils literal notranslate"><span class="pre">plugins</span></code> 옵션 값은 배열이며 모듈로 가져온 플러그인 함수나 직접 구현한 플러그인 함수를 배열에 추가합니다.</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="s1">&#39;codemirror/lib/codemirror.css&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="s1">&#39;@toast-ui/editor/dist/toastui-editor.css&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="s1">&#39;tui-chart/dist/tui-chart.css&#39;</span><span class="p">;</span>
+
+<span class="kr">import</span> <span class="nx">Editor</span> <span class="nx">from</span> <span class="s1">&#39;@toast-ui/editor&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="nx">chart</span> <span class="nx">from</span> <span class="s1">&#39;@toast-ui/editor-plugin-chart&#39;</span><span class="p">;</span>
+
+<span class="kr">const</span> <span class="nx">editor</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Editor</span><span class="p">({</span>
+  <span class="c1">// ...</span>
+  <span class="nx">plugins</span><span class="o">:</span> <span class="p">[</span><span class="nx">chart</span><span class="p">]</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>차트 플러그인은 <a href="https://spec.commonmark.org/0.29/#example-89" target="_blank">마크다운 코드 블록 구문</a> 을 사용하여 데이터를 입력하고 화면에 출력할 수 있습니다.
+마크다운 에디터 영역에 다음과 같이 입력하고 프리뷰 화면에 차트가 출력되는지 확인합니다.</p>
+<div class="highlight-md notranslate"><div class="highlight"><pre><span></span><span class="sb">```chart</span>
+<span class="s">,category1,category2</span>
+<span class="s">Jan,21,23</span>
+<span class="s">Feb,31,17</span>
+
+<span class="s">type: column</span>
+<span class="s">title: Monthly Revenue</span>
+<span class="s">x.title: Amount</span>
+<span class="s">y.title: Month</span>
+<span class="s">y.min: 1</span>
+<span class="s">y.max: 40</span>
+<span class="s">y.suffix: $</span>
+<span class="sb">```</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id4">
+<h2><span class="section-number">5.3. </span>커스텀 플러그인 만들기<a class="headerlink" href="#id4" title="제목 주소">¶</a></h2>
+<p>이번에는 TOAST UI Editor의 플러그인을 직접 만들어보겠습니다.
+방법은 아주 간단합니다.
+구현하려는 기능을 함수로 작성하고 <code class="docutils literal notranslate"><span class="pre">plugins</span></code> 옵션 배열에 생성한 함수를 추가하면 됩니다.</p>
+<p>이전 스텝에서 설명했던 <code class="docutils literal notranslate"><span class="pre">setMarkdown</span></code> API를 호출하여 에디터 콘텐츠를 변경하는 플러그인 함수를 만들고 설정해봅니다.</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// ...</span>
+
+<span class="kd">function</span> <span class="nx">myPlugin</span><span class="p">(</span><span class="nx">instance</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// 플러그인 함수 정의</span>
+  <span class="nx">setTimeout</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">instance</span><span class="p">.</span><span class="nx">setMarkdown</span><span class="p">(</span><span class="s1">&#39;# Hello Hands on Labs!&#39;</span><span class="p">);</span>
+  <span class="p">},</span> <span class="mf">1000</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kr">const</span> <span class="nx">editor</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Editor</span><span class="p">({</span> <span class="c1">// 에디터 인스턴스 생성</span>
+  <span class="nx">el</span><span class="o">:</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;#editor&#39;</span><span class="p">),</span>
+  <span class="nx">initialEditType</span><span class="o">:</span> <span class="s1">&#39;markdown&#39;</span><span class="p">,</span>
+  <span class="nx">previewStyle</span><span class="o">:</span> <span class="s1">&#39;vertical&#39;</span><span class="p">,</span>
+  <span class="nx">height</span><span class="o">:</span> <span class="s1">&#39;500px&#39;</span><span class="p">,</span>
+  <span class="nx">plugins</span><span class="o">:</span> <span class="p">[</span><span class="nx">myPlugin</span><span class="p">]</span> <span class="c1">// 커스텀 플러그인 설정</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>브라우저를 리프레시하여 직접 작성한 플러그인 함수가 잘 동작하는지 확인해봅니다.
+1초 후 마크다운 에디터 영역에 텍스트가 입력되고 프리뷰 화면에도 입력된 텍스트가 출력됩니다.</p>
+</div>
+<div class="section" id="id5">
+<h2><span class="section-number">5.4. </span>결과 화면<a class="headerlink" href="#id5" title="제목 주소">¶</a></h2>
+<div class="section" id="id6">
+<h3><span class="section-number">5.4.1. </span>차트 플러그인 실행 결과<a class="headerlink" href="#id6" title="제목 주소">¶</a></h3>
+<img alt="_images/step05-1.png" src="_images/step05-1.png" />
+</div>
+<div class="section" id="id7">
+<h3><span class="section-number">5.4.2. </span>커스텀 플러그인 실행 결과<a class="headerlink" href="#id7" title="제목 주소">¶</a></h3>
+<img alt="_images/step05-2.png" src="_images/step05-2.png" />
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="06.html" class="btn btn-neutral float-right" title="6. 유튜브 플러그인 개발하기" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="04.html" class="btn btn-neutral float-left" title="4. 콘텐츠 저장과 로드하기" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; 저작권 NHN Corp. All rights reserved.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

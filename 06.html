@@ -1,0 +1,280 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="ko" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>6. 유튜브 플러그인 개발하기 &mdash; TOAST UI Editor 유튜브 플러그인 개발하기 1.0 문서</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+        <script src="_static/translations.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="색인" href="genindex.html" />
+    <link rel="search" title="검색" href="search.html" />
+    <link rel="next" title="7. 정리" href="wrap-up.html" />
+    <link rel="prev" title="5. 플러그인 추가하기" href="05.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> TOAST UI Editor 유튜브 플러그인 개발하기
+          
+
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="01.html">1. 개요</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02.html">2. TOAST UI Editor 설치 및 서버 실행하기</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03.html">3. 에디터 생성하기</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04.html">4. 콘텐츠 저장과 로드하기</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05.html">5. 플러그인 추가하기</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">6. 유튜브 플러그인 개발하기</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#codeblockmanager">6.1. codeBlockManager 사용</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">6.2. 유튜브 영상 추가</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">6.3. 결과 화면</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="wrap-up.html">7. 정리</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">TOAST UI Editor 유튜브 플러그인 개발하기</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li><span class="section-number">6. </span>유튜브 플러그인 개발하기</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1><span class="section-number">6. </span>유튜브 플러그인 개발하기<a class="headerlink" href="#id1" title="제목 주소">¶</a></h1>
+<p>이제 <strong>코드 블록 구문을 사용해 유튜브 영상을 콘텐츠에 포함할 수 있는 플러그인</strong> 을 만들어보겠습니다.
+이 플러그인을 구현하기 전에 필요한 API부터 확인해 보겠습니다.</p>
+<p><em>- 주의 : 이전 스텝에서 실습했던 차트 및 커스텀 플러그인 함수 관련 코드는 제거하고 작성합니다.</em></p>
+<div class="section" id="codeblockmanager">
+<h2><span class="section-number">6.1. </span>codeBlockManager 사용<a class="headerlink" href="#codeblockmanager" title="제목 주소">¶</a></h2>
+<p><strong>codeBlockManager</strong> 은 마크다운 구문 중 코드 블록에 관련된 기능들이 모여있는 모듈입니다.</p>
+<p>차트 플러그인을 사용할 때 입력했던 것처럼 마크다운 코드 블록 구문을 확장해서 코드 블록이 유튜브 영상으로 변환되도록 만들 것입니다.
+아래 코드와 같이 <code class="docutils literal notranslate"><span class="pre">codeBlockManager</span></code> 의 <code class="docutils literal notranslate"><span class="pre">setReplacer</span></code> 메서드를 사용합니다.
+코드 블록 구문에서 사용하는 언어 값은 <code class="docutils literal notranslate"><span class="pre">'youtube'</span></code> 를 사용합니다.</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// ...</span>
+
+<span class="kd">function</span> <span class="nx">youtubePlugin</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">Editor</span><span class="p">.</span><span class="nx">codeBlockManager</span><span class="p">.</span><span class="nx">setReplacer</span><span class="p">(</span><span class="s1">&#39;youtube&#39;</span><span class="p">,</span> <span class="nx">code</span> <span class="p">=&gt;</span> <span class="sb">`play youtube id: </span><span class="si">${</span><span class="nx">code</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kr">const</span> <span class="nx">editor</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Editor</span><span class="p">({</span>
+  <span class="c1">// ...</span>
+  <span class="nx">plugins</span><span class="o">:</span> <span class="p">[</span><span class="nx">youtubePlugin</span><span class="p">]</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>플러그인이 동작하는지 확인하기 위해 마크다운 에디터에 아래와 같이 코드 블록 구문을 입력해봅니다.</p>
+<div class="highlight-md notranslate"><div class="highlight"><pre><span></span><span class="sb">```youtube</span>
+<span class="s">Hello TOAST UI Editor!</span>
+<span class="sb">```</span>
+</pre></div>
+</div>
+<p>오른쪽 프리뷰 화면에 마크다운 코드 블록에 입력한 내용이 플러그인에 의해 변환되어 출력됩니다.</p>
+</div>
+<div class="section" id="id2">
+<h2><span class="section-number">6.2. </span>유튜브 영상 추가<a class="headerlink" href="#id2" title="제목 주소">¶</a></h2>
+<p>이제 유튜브 동영상으로 변환해보겠습니다.</p>
+<p>유튜브 동영상은 <code class="docutils literal notranslate"><span class="pre">iframe</span></code> 태그를 사용해 쉽게 삽입할 수 있지만, TOAST UI Editor에서는 보안 이슈 때문에 <code class="docutils literal notranslate"><span class="pre">iframe</span></code> 태그를 모두 제거합니다.
+그래서 <code class="docutils literal notranslate"><span class="pre">div</span></code> 를 하나 만들고 다음 프레임에 <code class="docutils literal notranslate"><span class="pre">iframe</span></code> 을 추가해야 원하는 동작을 구현할 수 있습니다.</p>
+<p>입력된 유튜브 코드로 URL을 생성하고 <code class="docutils literal notranslate"><span class="pre">iframe</span></code> 이 생성되도록 다음과 같이 <code class="docutils literal notranslate"><span class="pre">youtubePlugin</span></code> 함수를 수정합니다.</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// ...</span>
+
+<span class="kd">function</span> <span class="nx">youtubePlugin</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">Editor</span><span class="p">.</span><span class="nx">codeBlockManager</span><span class="p">.</span><span class="nx">setReplacer</span><span class="p">(</span><span class="s1">&#39;youtube&#39;</span><span class="p">,</span> <span class="nx">youtubeId</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="kr">const</span> <span class="nx">wrapperId</span> <span class="o">=</span> <span class="sb">`yt</span><span class="si">${</span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">().</span><span class="nx">toString</span><span class="p">(</span><span class="mf">36</span><span class="p">).</span><span class="nx">substr</span><span class="p">(</span><span class="mf">2</span><span class="p">,</span> <span class="mf">10</span><span class="p">)</span><span class="si">}</span><span class="sb">`</span><span class="p">;</span>
+
+    <span class="nx">setTimeout</span><span class="p">(</span><span class="nx">renderYoutube</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="nx">wrapperId</span><span class="p">,</span> <span class="nx">youtubeId</span><span class="p">),</span> <span class="mf">0</span><span class="p">);</span>
+
+    <span class="k">return</span> <span class="sb">`&lt;div id=&quot;</span><span class="si">${</span><span class="nx">wrapperId</span><span class="si">}</span><span class="sb">&quot;&gt;&lt;/div&gt;`</span><span class="p">;</span>
+  <span class="p">});</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">renderYoutube</span><span class="p">(</span><span class="nx">wrapperId</span><span class="p">,</span> <span class="nx">youtubeId</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kr">const</span> <span class="nx">el</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="sb">`#</span><span class="si">${</span><span class="nx">wrapperId</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+  <span class="nx">el</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="sb">`&lt;iframe width=&quot;420&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/</span><span class="si">${</span><span class="nx">youtubeId</span><span class="si">}</span><span class="sb">&quot;&gt;&lt;/iframe&gt;`</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// ...</span>
+</pre></div>
+</div>
+<p>마크다운 에디터에서 코드 블록 구문을 입력하고 코드 블록 내용에 <strong>유튜브 영상 코드</strong> 를 입력합니다.</p>
+<div class="highlight-md notranslate"><div class="highlight"><pre><span></span><span class="sb">```youtube</span>
+<span class="s">xu70m8pOZJE</span>
+<span class="sb">```</span>
+</pre></div>
+</div>
+<p>마지막으로 프리뷰 화면에서 유튜브 영상이 출력되는지 확인합니다.</p>
+</div>
+<div class="section" id="id3">
+<h2><span class="section-number">6.3. </span>결과 화면<a class="headerlink" href="#id3" title="제목 주소">¶</a></h2>
+<img alt="_images/step06.png" src="_images/step06.png" />
+<p>축하합니다. TOAST UI Editor의 첫 커스텀 플러그인을 완성했습니다! 🎉</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="wrap-up.html" class="btn btn-neutral float-right" title="7. 정리" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="05.html" class="btn btn-neutral float-left" title="5. 플러그인 추가하기" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; 저작권 NHN Corp. All rights reserved.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

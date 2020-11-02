@@ -1,0 +1,255 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="ko" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>4. 콘텐츠 저장과 로드하기 &mdash; TOAST UI Editor 유튜브 플러그인 개발하기 1.0 문서</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+        <script src="_static/translations.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="색인" href="genindex.html" />
+    <link rel="search" title="검색" href="search.html" />
+    <link rel="next" title="5. 플러그인 추가하기" href="05.html" />
+    <link rel="prev" title="3. 에디터 생성하기" href="03.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> TOAST UI Editor 유튜브 플러그인 개발하기
+          
+
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="01.html">1. 개요</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02.html">2. TOAST UI Editor 설치 및 서버 실행하기</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03.html">3. 에디터 생성하기</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">4. 콘텐츠 저장과 로드하기</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#html-api">4.1. HTML 관련 API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#api">4.2. 마크다운 관련 API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">4.3. 결과 화면</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id3">4.3.1. HTML 관련 API 호출 결과</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">4.3.2. 마크다운 관련 API 호출 결과</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="05.html">5. 플러그인 추가하기</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06.html">6. 유튜브 플러그인 개발하기</a></li>
+<li class="toctree-l1"><a class="reference internal" href="wrap-up.html">7. 정리</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">TOAST UI Editor 유튜브 플러그인 개발하기</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li><span class="section-number">4. </span>콘텐츠 저장과 로드하기</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1><span class="section-number">4. </span>콘텐츠 저장과 로드하기<a class="headerlink" href="#id1" title="제목 주소">¶</a></h1>
+<p>TOAST UI Editor는 기본적으로 마크다운 텍스트로 입력받고 출력합니다.
+에디터를 사용하는 유저는 마크다운 모드에서 혹은 위지윅 모드에서 문서를 편집할 수 있지만 편집된 내용을 저장할 때는 마크다운 텍스트로 저장됩니다.
+개발 편의를 위해 HTML 데이터를 입력하거나 출력할 수 있는 API도 제공하고 있습니다.</p>
+<p>index.js 파일 하단에 아래의 코드를 입력해 각 API 호출 결과를 확인해 봅니다.</p>
+<div class="section" id="html-api">
+<h2><span class="section-number">4.1. </span>HTML 관련 API<a class="headerlink" href="#html-api" title="제목 주소">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">setHtml(html)</span></code> : 인자로 전달하는 HTML 텍스트로 에디터의 콘텐츠를 변경합니다.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">getHtml()</span></code> : 현재 편집 중인 콘텐츠를 HTML 텍스트로 받습니다.</p></li>
+</ul>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">editor</span><span class="p">.</span><span class="nx">setHtml</span><span class="p">(</span><span class="s1">&#39;&lt;h1&gt;Hello TOAST UI Editor!&lt;/h1&gt;&#39;</span><span class="p">);</span>
+
+<span class="nx">alert</span><span class="p">(</span><span class="nx">editor</span><span class="p">.</span><span class="nx">getHtml</span><span class="p">());</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="api">
+<h2><span class="section-number">4.2. </span>마크다운 관련 API<a class="headerlink" href="#api" title="제목 주소">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">setMarkdown(markdown)</span></code> : 인자로 전달하는 마크다운 텍스트로 에디터의 콘텐츠를 변경합니다.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">getMarkdown()</span></code> : 현재 편집 중인 콘텐츠를 마크다운 텍스트로 받습니다.</p></li>
+</ul>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">editor</span><span class="p">.</span><span class="nx">setMarkdown</span><span class="p">(</span><span class="s1">&#39;# Hello NHN Forward!&#39;</span><span class="p">);</span>
+
+<span class="nx">alert</span><span class="p">(</span><span class="nx">editor</span><span class="p">.</span><span class="nx">getMarkdown</span><span class="p">());</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id2">
+<h2><span class="section-number">4.3. </span>결과 화면<a class="headerlink" href="#id2" title="제목 주소">¶</a></h2>
+<div class="section" id="id3">
+<h3><span class="section-number">4.3.1. </span>HTML 관련 API 호출 결과<a class="headerlink" href="#id3" title="제목 주소">¶</a></h3>
+<img alt="_images/step04-1.png" src="_images/step04-1.png" />
+</div>
+<div class="section" id="id4">
+<h3><span class="section-number">4.3.2. </span>마크다운 관련 API 호출 결과<a class="headerlink" href="#id4" title="제목 주소">¶</a></h3>
+<img alt="_images/step04-2.png" src="_images/step04-2.png" />
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="05.html" class="btn btn-neutral float-right" title="5. 플러그인 추가하기" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="03.html" class="btn btn-neutral float-left" title="3. 에디터 생성하기" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; 저작권 NHN Corp. All rights reserved.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

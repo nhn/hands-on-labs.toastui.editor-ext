@@ -1,0 +1,265 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="ko" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>3. 에디터 생성하기 &mdash; TOAST UI Editor 유튜브 플러그인 개발하기 1.0 문서</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+        <script src="_static/translations.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="색인" href="genindex.html" />
+    <link rel="search" title="검색" href="search.html" />
+    <link rel="next" title="4. 콘텐츠 저장과 로드하기" href="04.html" />
+    <link rel="prev" title="2. TOAST UI Editor 설치 및 서버 실행하기" href="02.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> TOAST UI Editor 유튜브 플러그인 개발하기
+          
+
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="01.html">1. 개요</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02.html">2. TOAST UI Editor 설치 및 서버 실행하기</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">3. 에디터 생성하기</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#html">3.1. HTML 초기 코드 작성</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">3.2. 자바스크립트 초기 코드 작성</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">3.3. 결과 화면</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="04.html">4. 콘텐츠 저장과 로드하기</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05.html">5. 플러그인 추가하기</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06.html">6. 유튜브 플러그인 개발하기</a></li>
+<li class="toctree-l1"><a class="reference internal" href="wrap-up.html">7. 정리</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">TOAST UI Editor 유튜브 플러그인 개발하기</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li><span class="section-number">3. </span>에디터 생성하기</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1><span class="section-number">3. </span>에디터 생성하기<a class="headerlink" href="#id1" title="제목 주소">¶</a></h1>
+<div class="section" id="html">
+<h2><span class="section-number">3.1. </span>HTML 초기 코드 작성<a class="headerlink" href="#html" title="제목 주소">¶</a></h2>
+<p>준비된 <code class="docutils literal notranslate"><span class="pre">src/index.html</span></code> 파일을 열어 <code class="docutils literal notranslate"><span class="pre">body</span></code> 태그 내부에 컨테이너 태그를 작성해 줍니다.</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span>// src/index.html
+
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+  ...
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;editor&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+  ...
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id2">
+<h2><span class="section-number">3.2. </span>자바스크립트 초기 코드 작성<a class="headerlink" href="#id2" title="제목 주소">¶</a></h2>
+<p>1. 인스턴스를 생성해봅니다. 이때 반드시 기본 옵션을 파라미터로 넘겨주어야 합니다.
+<code class="docutils literal notranslate"><span class="pre">src/index.js</span></code> 파일을 열고 다음 코드를 추가해봅니다.</p>
+<ul>
+<li><p>기본 옵션 정보</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">el</span></code> : 에디터가 생성되는 컨테이너 엘리먼트 지정</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">initialEditType</span></code> : 에디터 초기 모드를 지정 (<code class="docutils literal notranslate"><span class="pre">'markdown'</span></code> 또는 <code class="docutils literal notranslate"><span class="pre">'wysiwyg'</span></code>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">previewStyle</span></code> : 마크다운 모드는 편집 중인 콘텐츠의 모습을 미리 볼 수 있는 프리뷰의 UI 형태를 지정 (<code class="docutils literal notranslate"><span class="pre">'tab'</span></code> 또는 <code class="docutils literal notranslate"><span class="pre">'vertical'</span></code>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">height</span></code> : 에디터 편집 영역의 높이 지정</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">initialValue</span></code> : 에디터에 초기 콘텐츠 값을 마크다운 텍스트로 지정</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>더 많은 옵션 보기 : <a href="https://nhn.github.io/tui.editor/latest/ToastUIEditor" target="_blank">링크</a></p></li>
+</ul>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// src/index.js</span>
+
+<span class="kr">import</span> <span class="s1">&#39;codemirror/lib/codemirror.css&#39;</span><span class="p">;</span> <span class="c1">// CodeMirror 스타일 (마크다운 에디터의 디펜던시)</span>
+<span class="kr">import</span> <span class="s1">&#39;@toast-ui/editor/dist/toastui-editor.css&#39;</span><span class="p">;</span> <span class="c1">// TOAST UI Editor 기본 스타일</span>
+
+<span class="kr">import</span> <span class="nx">Editor</span> <span class="nx">from</span> <span class="s1">&#39;@toast-ui/editor&#39;</span><span class="p">;</span>
+
+<span class="kr">const</span> <span class="nx">editor</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Editor</span><span class="p">({</span> <span class="c1">// 에디터 인스턴스 생성</span>
+  <span class="nx">el</span><span class="o">:</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;#editor&#39;</span><span class="p">),</span>
+  <span class="nx">initialEditType</span><span class="o">:</span> <span class="s1">&#39;markdown&#39;</span><span class="p">,</span>
+  <span class="nx">previewStyle</span><span class="o">:</span> <span class="s1">&#39;vertical&#39;</span><span class="p">,</span>
+  <span class="nx">height</span><span class="o">:</span> <span class="s1">&#39;500px&#39;</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>2. 개발 서버에 접속한 브라우저에서 에디터가 생성되었는지 확인합니다.
+코드를 수정하면 브라우저는 자동으로 리프레시됩니다.</p>
+</div>
+<div class="section" id="id3">
+<h2><span class="section-number">3.3. </span>결과 화면<a class="headerlink" href="#id3" title="제목 주소">¶</a></h2>
+<img alt="_images/step03.png" src="_images/step03.png" />
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="04.html" class="btn btn-neutral float-right" title="4. 콘텐츠 저장과 로드하기" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="02.html" class="btn btn-neutral float-left" title="2. TOAST UI Editor 설치 및 서버 실행하기" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; 저작권 NHN Corp. All rights reserved.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
