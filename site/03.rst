@@ -28,7 +28,7 @@ HTML 초기 코드 작성
     
     * ``el`` : 에디터가 생성되는 컨테이너 엘리먼트 지정
     * ``initialEditType`` : 에디터 초기 모드를 지정 (``'markdown'`` 또는 ``'wysiwyg'``)
-    * ``previewStyle`` : 마크다운 모드는 편집 중인 콘텐츠의 모습을 미리 볼 수 있는 프리뷰의 UI 형태를 지정 (``'tab'`` 또는 ``'vertical'``)
+    * ``previewStyle`` : 마크다운 모드에서 편집 중인 콘텐츠의 모습을 미리 볼 수 있는 프리뷰의 UI 형태를 지정 (``'tab'`` 또는 ``'vertical'``)
     * ``height`` : 에디터 편집 영역의 높이 지정
     * ``initialValue`` : 에디터에 초기 콘텐츠 값을 마크다운 텍스트로 지정
 
