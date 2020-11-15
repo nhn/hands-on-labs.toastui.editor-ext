@@ -57,7 +57,7 @@ source_encoding = 'utf-8'
 master_doc = 'index'
 
 # General information about the project.
-project = 'TOAST UI Editor 유튜브 플러그인 개발하기'
+project = u'TOAST UI Editor 유튜브 플러그인 개발하기'
 copyright = 'NHN Corp. All rights reserved.'
 author = ''
 
